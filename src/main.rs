@@ -1,12 +1,12 @@
-use std::io::{self, Write};
 use hyper::Client;
-use hyper::rt::{self, Future, Stream};
+use hyper::rt::{self, Future};
 use clap::{Arg, App};
 
 fn main() {
     let arguments = App::new("Http Inspection and Fuzzing Interface")
                         .version("0.0.1")
                         .author("Jon Moroney jmoroney@hawaii.edu")
+                        .after_help("Delimiters\n くpattern numberゝ")
                         .about("Fuzz some endpoints")
                         .arg(Arg::with_name("urls")
                                .short("u")
