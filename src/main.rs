@@ -21,11 +21,19 @@ fn main() {
                         .get_matches();
 
     let urls: Vec<_> = arguments.values_of("urls").unwrap().collect();
-    let curly_regex = Regex::new(r"\{*\}").unwrap();
+    let curly_regex = Regex::new(r"\{(.*?)\}").unwrap();
     for url in urls.iter() {
       println!("{:?}", url);
-      println!("{:?}", curly_regex.is_match(url)); 
+      println!("{:?}", curly_regex.is_match(url));
+      for cap in curly_regex.captures_iter(url) {
+        println!("{:?}", &cap[0]);
+      }
     }
+    
+
+    //Sketch
+    //Parse urls for pattern points
+    //Ensure that each pattern is valid
 
 
 
@@ -44,5 +52,5 @@ fn main() {
     //     })
     // }));
 
-    
+
 }
