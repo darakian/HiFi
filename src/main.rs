@@ -1,6 +1,7 @@
 use hyper::Client;
 use hyper::rt::{self, Future};
 use clap::{Arg, App};
+use std::collections::HashSet;
 use regex::Regex;
 
 fn main() {
@@ -22,7 +23,7 @@ fn main() {
 
     let urls: Vec<_> = arguments.values_of("urls").unwrap().collect();
     let curly_regex = Regex::new(r"\{(.*?)\}").unwrap();
-    let mut patterns = Vec::new();
+    let mut patterns = HashSet::new();
     for url in urls.iter() {
       println!("url: {:?}", url);
       for cap in curly_regex.captures_iter(url) {
@@ -32,12 +33,12 @@ fn main() {
           //patterns.insert(token);
         }
         println!("\tcap[0]:{:?}", &cap[0]);
-        patterns.push(String::from(&cap[0]));
+        patterns.insert(String::from(&cap[0]));
       }
       //patterns.push(curly_regex.captures(url));
     }
 
-    println!("Capture vec");
+    println!("Captures");
     for element in patterns.iter(){
       println!("{:?}", element);
     }
