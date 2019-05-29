@@ -26,6 +26,7 @@ fn main() {
     let mut patterns: HashSet<(String, Option<Vec<String>>)> = HashSet::new();
     for url in urls.iter() {
       println!("url: {:?}", url);
+      println!("url removed:{:?}", curly_regex.replace_all(url, ""));
       for cap in curly_regex.captures_iter(url) {
       println!("\tcap: {:?}", cap);
         for token in cap.iter(){
@@ -40,13 +41,14 @@ fn main() {
 
     println!("Captures");
     for element in patterns.iter(){
-      println!("{:?}", element);
+      println!("{:?}", element.0);
     }
-    
-
-    //Sketch
+    //Sketch//
     //Parse urls for pattern points
     //Ensure that each pattern is valid
+    //Generate input to patterns on worker threads
+    //Send generated data from worker threads to main thread
+    //Async make http request
 
 
 
