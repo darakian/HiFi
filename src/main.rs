@@ -51,6 +51,7 @@ fn main() {
     //Generate input to patterns on worker threads with some random seed
     //Send generated data from worker threads to main thread
     //Async make http request
+    //Possibly generate and http on the same worker
 
 
 }
