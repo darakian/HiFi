@@ -26,6 +26,7 @@ fn main() {
       println!("url: {:?}", url);
       println!("url removed:{:?}", curly_regex.replace_all(url, ""));
       for cap in curly_regex.captures_iter(url) {
+      Regex::new(&regex::escape(&cap[0])).unwrap();   
       println!("\tcap: {:?}", cap);
         for token in cap.iter(){
           println!("\t\ttoken: {:?}", token);
@@ -40,6 +41,9 @@ fn main() {
     println!("Captures");
     for element in patterns.iter(){
       println!("{:?}", element.0);
+      let tmp = Regex::new(&regex::escape(&element.0)).unwrap();
+      println!("{:?}", tmp);
+      println!("is match? {:?}", tmp.is_match(&element.0));
     }
     //Sketch//
     //Parse urls for pattern points
