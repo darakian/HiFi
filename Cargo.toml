@@ -5,6 +5,5 @@ authors = ["Jon Moroney <darakian@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-hyper = "0.12"
 clap = "~2.33.0"
 regex = "1"

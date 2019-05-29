@@ -1,5 +1,3 @@
-use hyper::Client;
-use hyper::rt::{self, Future};
 use clap::{Arg, App};
 use std::collections::HashSet;
 use regex::Regex;
@@ -46,26 +44,9 @@ fn main() {
     //Sketch//
     //Parse urls for pattern points
     //Ensure that each pattern is valid
-    //Generate input to patterns on worker threads
+    //Generate input to patterns on worker threads with some random seed
     //Send generated data from worker threads to main thread
     //Async make http request
-
-
-
-    // rt::run(rt::lazy(|| {
-    // let client = Client::new();
-
-    // let uri = "http://httpbin.org/ip".parse().unwrap();
-
-    // client
-    //     .get(uri)
-    //     .map(|res| {
-    //         println!("Response: {}", res.status());
-    //     })
-    //     .map_err(|err| {
-    //         println!("Error: {}", err);
-    //     })
-    // }));
 
 
 }
